@@ -1,0 +1,20 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ * Primary module hooks for DaisyUI Style Guide.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function daisyui_style_guide_theme(): array {
+  return [
+    'daisyui_style_guide' => [
+      'variables' => [],
+      'template' => 'daisyui-style-guide',
+    ],
+  ];
+}

@@ -1,0 +1,7 @@
+name: 'DaisyUI Style Guide'
+type: module
+description: 'Fungible style guide showcasing theme colors, typography, and DaisyUI SDC components at /style-guide.'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - daisyui_sdc:daisyui_sdc
