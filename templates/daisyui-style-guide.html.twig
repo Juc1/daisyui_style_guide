@@ -427,10 +427,80 @@
     </div>
   </section>
 
-  {# 4. SINGLE DIRECTORY COMPONENTS (SDCs) #}
+  {# 4. ICONOGRAPHY #}
+  <section class="space-y-8">
+    <div class="border-b border-base-300 pb-3">
+      <span class="text-xs font-mono uppercase text-primary font-semibold tracking-wider">04. Iconography</span>
+      <h2 class="text-2xl md:text-3xl font-serif mt-1">Phosphor Icon System</h2>
+      <p class="text-sm text-muted-foreground">Curated core icons from Drupal's <code class="font-mono">phosphor</code> pack. Click any icon to copy its machine name for SDC props (e.g. <code class="font-mono">icon: 'paint-brush'</code>).</p>
+    </div>
+
+    {# Usage Guide Card #}
+    <div class="p-4 rounded-box bg-base-200/50 border border-base-300 flex flex-col md:flex-row md:items-center justify-between gap-4 text-xs font-mono">
+      <div>
+        <span class="text-muted-foreground">In SDC Props: </span>
+        <code class="text-primary font-bold">icon: 'paint-brush'</code>
+        <span class="text-muted-foreground ml-3">In Twig templates: </span>
+        <code class="text-primary font-bold">&#123;&#123; icon('phosphor', 'paint-brush', { class: 'size-6' }) &#125;&#125;</code>
+      </div>
+      <div class="badge badge-outline badge-sm text-muted-foreground shrink-0">Pack: phosphor (Drupal Icon API)</div>
+    </div>
+
+    {# Icon Groups #}
+    {% set icon_categories = {
+      'Creative & Identity': [
+        'flower-lotus', 'paint-brush', 'palette', 'sparkle', 'rocket', 'star', 'heart', 'lightning'
+      ],
+      'Navigation & Actions': [
+        'arrow-right', 'arrow-up-right', 'caret-down', 'magnifying-glass', 'house', 'link', 'share-network', 'funnel'
+      ],
+      'Content & Media': [
+        'article', 'file-text', 'image', 'video-camera', 'calendar', 'clock', 'bookmark', 'tag'
+      ],
+      'Communication & Alerts': [
+        'envelope', 'phone', 'chat-circle', 'bell', 'paper-plane-tilt', 'broadcast', 'info', 'warning-circle'
+      ],
+      'Commerce & System': [
+        'shopping-cart', 'credit-card', 'check-circle', 'shield-check', 'gift', 'currency-dollar', 'users', 'gear'
+      ]
+    } %}
+
+    <div class="space-y-6">
+      {% for category_title, icons in icon_categories %}
+        <div class="space-y-3">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-muted-foreground font-mono flex items-center gap-2">
+            <span>{{ category_title }}</span>
+            <span class="badge badge-ghost badge-xs">{{ icons|length }}</span>
+          </h3>
+          <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-3">
+            {% for icon_name in icons %}
+              <button
+                type="button"
+                class="group flex flex-col items-center justify-center p-3 rounded-box bg-base-100 border border-base-300 hover:border-primary hover:shadow-md transition-all text-center relative cursor-pointer"
+                onclick="navigator.clipboard.writeText('{{ icon_name }}'); const el = this.querySelector('.copy-tip'); el.classList.remove('hidden'); setTimeout(() => el.classList.add('hidden'), 1500);"
+                title="Click to copy '{{ icon_name }}'"
+              >
+                <span class="text-base-content group-hover:text-primary transition-colors [&>svg]:size-7 [&>svg]:shrink-0 flex items-center justify-center mb-2">
+                  {{ icon('phosphor', icon_name, { class: 'size-7' }) }}
+                </span>
+                <span class="text-[11px] font-mono text-muted-foreground group-hover:text-foreground break-all line-clamp-1">
+                  {{ icon_name }}
+                </span>
+                <span class="copy-tip hidden absolute -top-8 left-1/2 -translate-x-1/2 bg-neutral text-neutral-content text-[10px] py-0.5 px-2 rounded shadow-md pointer-events-none whitespace-nowrap z-20">
+                  Copied!
+                </span>
+              </button>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  {# 5. SINGLE DIRECTORY COMPONENTS (SDCs) #}
   <section id="daisyui-components" class="space-y-8 pb-12">
     <div class="border-b border-base-300 pb-3">
-      <span class="text-xs font-mono uppercase text-primary font-semibold tracking-wider">04. Single Directory Components</span>
+      <span class="text-xs font-mono uppercase text-primary font-semibold tracking-wider">05. Single Directory Components</span>
       <h2 class="text-2xl md:text-3xl font-serif mt-1">DaisyUI SDCs (daisyui_sdc)</h2>
       <p class="text-sm text-muted-foreground">Reusable, fungible components from <code class="font-mono">web/modules/custom/daisyui_sdc</code>.</p>
     </div>
