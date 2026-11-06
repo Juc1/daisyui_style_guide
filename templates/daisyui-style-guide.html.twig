@@ -9,7 +9,7 @@
 <div class="brand-guide py-12 px-4 max-w-6xl mx-auto space-y-16">
 
   {# Page Header #}
-  <header class="border-b border-base-300 pb-8 space-y-3">
+  <header class="border-b border-base-300 pb-8 space-y-4">
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
       <div>
         <h1 class="text-4xl md:text-5xl font-serif text-foreground">Style Guide</h1>
@@ -25,11 +25,17 @@
         }, with_context: false) }}
       </div>
     </div>
-    <p class="text-sm text-muted-foreground">
-      Built with <a href="https://new.drupal.org/" target="_blank" rel="noopener">Drupal CMS</a>,
-      <a href="https://tailwindcss.com/" target="_blank" rel="noopener">Tailwind CSS</a>,
-      and <a href="https://daisyui.com/" target="_blank" rel="noopener">DaisyUI</a>.
-    </p>
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
+      <p class="text-sm text-muted-foreground">
+        Built with <a href="https://new.drupal.org/" target="_blank" rel="noopener">Drupal CMS</a>,
+        <a href="https://tailwindcss.com/" target="_blank" rel="noopener">Tailwind CSS</a>,
+        and <a href="https://daisyui.com/" target="_blank" rel="noopener">DaisyUI</a>.
+      </p>
+      <a href="/style-guide/daisyui" class="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-box bg-base-200 hover:bg-base-300 border border-base-300 transition-colors w-fit">
+        <span class="text-primary">{{ icon('phosphor', 'sparkle', { class: 'size-4' }) }}</span>
+        <span>DaisyUI Full Component Catalog &rarr;</span>
+      </a>
+    </div>
   </header>
 
   {# 1. COLORS & DESIGN TOKENS #}
@@ -754,7 +760,7 @@
 
   </section>
 
-  {# 5. DYNAMIC FONT & TOKEN DETECTION (100% Fungible) #}
+  {# 6. DYNAMIC FONT & TOKEN DETECTION (100% Fungible) #}
   <script>
     (function () {
       function detectActiveFonts() {

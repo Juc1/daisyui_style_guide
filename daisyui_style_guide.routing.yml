@@ -5,3 +5,11 @@ daisyui_style_guide.page:
     _title: 'Style Guide'
   requirements:
     _role: 'authenticated'
+
+daisyui_style_guide.daisyui_preview:
+  path: '/style-guide/daisyui'
+  defaults:
+    _controller: '\Drupal\daisyui_style_guide\Controller\StyleGuideController::daisyuiPreview'
+    _title: 'DaisyUI Components Catalog'
+  requirements:
+    _role: 'authenticated'

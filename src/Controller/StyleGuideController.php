@@ -7,19 +7,36 @@ namespace Drupal\daisyui_style_guide\Controller;
 use Drupal\Core\Controller\ControllerBase;
 
 /**
- * Returns responses for DaisyUI Style Guide routes.
+ * Controller for the DaisyUI Style Guide routes.
  */
-final class StyleGuideController extends ControllerBase {
+class StyleGuideController extends ControllerBase {
 
   /**
-   * Builds the style guide page.
+   * Renders the primary brand & style guide page.
    *
    * @return array
-   *   A render array representing the style guide.
+   *   A render array.
    */
   public function content(): array {
     return [
       '#theme' => 'daisyui_style_guide',
+    ];
+  }
+
+  /**
+   * Renders the complete DaisyUI component catalog preview.
+   *
+   * @return array
+   *   A render array.
+   */
+  public function daisyuiPreview(): array {
+    return [
+      '#theme' => 'daisyui_preview_page',
+      '#attached' => [
+        'library' => [
+          'daisyui_style_guide/full_daisyui',
+        ],
+      ],
     ];
   }
 

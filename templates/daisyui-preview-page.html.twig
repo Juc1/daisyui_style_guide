@@ -1,0 +1,79 @@
+{#
+/**
+ * @file
+ * DaisyUI Full Component Catalog Preview Page.
+ * Independent supplementary page for browsing all DaisyUI components.
+ */
+#}
+<div class="daisyui-catalog-page min-h-screen bg-base-200/40 text-base-content py-8 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-[1440px] mx-auto space-y-6">
+
+    {# Top Navigation & Controls #}
+    <header class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-base-100 p-4 sm:p-6 rounded-box border border-base-300 shadow-xs">
+      <div class="space-y-1">
+        <div class="flex items-center gap-2">
+          <a href="/style-guide" class="btn btn-sm btn-ghost gap-1 font-mono text-xs">
+            &larr; Back to Style Guide
+          </a>
+          <span class="badge badge-primary badge-sm font-semibold">Inspiration Catalog</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold font-serif">DaisyUI Component Catalog</h1>
+        <p class="text-xs sm:text-sm text-muted-foreground">
+          Live 3-column showcase of DaisyUI components. Toggle active themes below to preview styling.
+        </p>
+      </div>
+
+      {# Theme Switcher #}
+      <div class="flex flex-wrap items-center gap-2 p-2 bg-base-200/70 rounded-box border border-base-300">
+        <span class="text-xs font-mono font-semibold uppercase px-2 text-muted-foreground">Theme:</span>
+        <button type="button" class="btn btn-xs btn-outline theme-pick-btn" data-set-theme="default">Default</button>
+        <button type="button" class="btn btn-xs btn-outline theme-pick-btn" data-set-theme="coffee">Coffee</button>
+        <button type="button" class="btn btn-xs btn-outline theme-pick-btn" data-set-theme="valentine">Valentine</button>
+        <button type="button" class="btn btn-xs btn-outline theme-pick-btn" data-set-theme="bumblebee">Bumblebee</button>
+      </div>
+    </header>
+
+    {# 3-Column Preview Container #}
+    <main class="daisyui-preview-wrapper bg-base-100 p-4 sm:p-6 rounded-box border border-base-300 shadow-sm overflow-hidden">
+      {% include '@daisyui_style_guide/daisyui-preview.html.twig' %}
+    </main>
+
+  </div>
+</div>
+
+<script>
+  (function() {
+    function initThemePicker() {
+      var buttons = document.querySelectorAll('.theme-pick-btn');
+      var html = document.documentElement;
+      var activeTheme = html.getAttribute('data-theme') || 'default';
+
+      buttons.forEach(function(btn) {
+        var theme = btn.getAttribute('data-set-theme');
+        if (theme === activeTheme) {
+          btn.classList.add('btn-primary');
+          btn.classList.remove('btn-outline');
+        }
+
+        btn.addEventListener('click', function() {
+          var targetTheme = this.getAttribute('data-set-theme');
+          html.setAttribute('data-theme', targetTheme);
+          localStorage.setItem('theme', targetTheme);
+
+          buttons.forEach(function(b) {
+            b.classList.remove('btn-primary');
+            b.classList.add('btn-outline');
+          });
+          this.classList.add('btn-primary');
+          this.classList.remove('btn-outline');
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initThemePicker);
+    } else {
+      initThemePicker();
+    }
+  })();
+</script>

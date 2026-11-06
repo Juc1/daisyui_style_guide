@@ -16,5 +16,9 @@ function daisyui_style_guide_theme(): array {
       'variables' => [],
       'template' => 'daisyui-style-guide',
     ],
+    'daisyui_preview_page' => [
+      'variables' => [],
+      'template' => 'daisyui-preview-page',
+    ],
   ];
 }

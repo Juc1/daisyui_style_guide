@@ -8,3 +8,15 @@ daisyui_style_guide.style_guide:
     icon:
       pack_id: phosphor
       icon_id: paint-brush
+
+daisyui_style_guide.daisyui_preview:
+  title: 'DaisyUI Catalog'
+  description: 'Full DaisyUI component inspiration catalog'
+  route_name: daisyui_style_guide.daisyui_preview
+  menu_name: content
+  parent: daisyui_style_guide.style_guide
+  weight: 10
+  options:
+    icon:
+      pack_id: phosphor
+      icon_id: sparkle

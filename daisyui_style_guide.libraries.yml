@@ -1,0 +1,6 @@
+full_daisyui:
+  version: 5.x
+  css:
+    theme:
+      https://cdn.jsdelivr.net/npm/daisyui@5/daisyui.css: { type: external, minified: true }
+      css/daisyui-preview.css: {}
