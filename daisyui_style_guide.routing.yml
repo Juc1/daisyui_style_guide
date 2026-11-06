@@ -4,4 +4,4 @@ daisyui_style_guide.page:
     _controller: '\Drupal\daisyui_style_guide\Controller\StyleGuideController::content'
     _title: 'Style Guide'
   requirements:
-    _permission: 'access content'
+    _role: 'authenticated'
